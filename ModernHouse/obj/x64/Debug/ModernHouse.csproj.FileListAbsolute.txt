@@ -1,9 +1,0 @@
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\bin\x64\Debug\ModernHouse.exe.config
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\bin\x64\Debug\ModernHouseDB.accdb
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\bin\x64\Debug\ModernHouse.exe
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\bin\x64\Debug\ModernHouse.pdb
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\obj\x64\Debug\ModernHouse.ModernHouse.resources
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\obj\x64\Debug\ModernHouse.Properties.Resources.resources
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\obj\x64\Debug\ModernHouse.csproj.GenerateResource.Cache
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\obj\x64\Debug\ModernHouse.exe
-C:\Users\Yasser\Documents\Visual Studio 2015\Projects\ModernHouse\ModernHouse\obj\x64\Debug\ModernHouse.pdb
