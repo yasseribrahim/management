@@ -126,6 +126,11 @@ namespace Management.App_Code
             return "ID: " + id + ", Name: " + name + ", Quantity: " + quantity + ", Limit: " + limit + ", Price: " + price + ", PriceSale: " + priceSale + ", Note: " + note;
         }
 
+        public bool IsCritical()
+        {
+            return quantity <= limit;
+        }
+
         public static string SELECT_ID = "SELECT * FROM Products WHERE ID = @ID";
         public static string SELECT = "SELECT * FROM Products";
         public static string SELECT_BY_NAME = "SELECT * FROM Products WHERE Name LIKE '%PRODUCT_NAME%'";
@@ -133,6 +138,7 @@ namespace Management.App_Code
         public static string UPDATE = "UPDATE Products SET Name = @Name, Quantity = @Quantity, Limit = @Limit, Price = @Price, PriceSale = @PriceSale , Note = @Note WHERE ID = @ID";
         public static string UPDATE_STORE = "UPDATE Products SET Quantity = @Quantity WHERE ID = @ID";
         public static string SELECT_REQUIRED = "SELECT * FROM Products WHERE Quantity <= Limit";
+        public static string SELECT_COUNT_REQUIRED = "SELECT COUNT(*) AS [COUNT_REQUIRED] FROM Products WHERE Quantity <= Limit";
         public static string DELETE = "DELETE FROM Products WHERE ID = @ID";
         /*
         DELETE FROM Clients;

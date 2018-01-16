@@ -8,13 +8,16 @@ namespace Management
     public partial class ProductsUserControl : UserControl, RefreshListeners.ProductListener
     {
         private DatabaseAccess access;
+        private List<Product> currentProducts;
         private List<Product> products;
+        private List<Product> productsCritical;
 
         public ProductsUserControl()
         {
             InitializeComponent();
             try
             {
+                this.productsCritical = new List<Product>();
                 this.access = DatabaseAccess.getInstance();
             }
             catch (Exception ex)
@@ -52,10 +55,36 @@ namespace Management
                 products = access.GetAllProducts(name);
             }
 
+            productsCritical.Clear();
             dgvProducts.Rows.Clear();
             foreach (Product product in products)
             {
+                if (product.IsCritical())
+                {
+                    productsCritical.Add(product);
+                }
+            }
+
+            ReFillData();
+        }
+
+        private void ReFillData()
+        {
+            currentProducts = products;
+            if (checkBox1.Checked)
+            {
+                currentProducts = productsCritical;
+            }
+            
+            dgvProducts.Rows.Clear();
+            foreach (Product product in currentProducts)
+            {
                 dgvProducts.Rows.Add(new object[] { product.Id, product.Name, product.Price, product.PriceSale, product.Quantity, product.Limit });
+            }
+
+            if(currentProducts.Count <= 0)
+            {
+                MessageBox.Show("لا توجد منتجات للعرض", "Message...", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -98,12 +127,15 @@ namespace Management
             int index = GetRowIndex(product);
             if (index != -1)
             {
+                products[index] = product;
                 DataGridViewRow row = dgvProducts.Rows[index];
                 row.Cells["ColumnName"].Value = product.Name + "";
                 row.Cells["ColumnPrice"].Value = product.Price + "";
                 row.Cells["ColumnPriceSale"].Value = product.PriceSale + "";
                 row.Cells["ColumnQuantity"].Value = product.Quantity + "";
                 row.Cells["ColumnLimit"].Value = product.Limit + "";
+
+                UIUtilties.DataGridView_RowAdded(dgvProducts, index, product.Quantity <= product.Limit);
             }
         }
 
@@ -122,6 +154,17 @@ namespace Management
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void dgvProducts_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            Product product = products[e.RowIndex];
+            UIUtilties.DataGridView_RowAdded(sender, e.RowIndex, product.Quantity <= product.Limit);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            ReFillData();   
         }
     }
 }

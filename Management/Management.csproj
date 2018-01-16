@@ -85,6 +85,7 @@
     <Compile Include="App_Code\OrderDetail.cs" />
     <Compile Include="App_Code\OrdersInfo.cs" />
     <Compile Include="App_Code\Product.cs" />
+    <Compile Include="App_Code\UIUtilties.cs" />
     <Compile Include="ClientsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Management));
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -39,6 +40,7 @@
             this.tmsiInbox = new System.Windows.Forms.ToolStripMenuItem();
             this.الخازنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiViewProducts = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,6 +137,12 @@
             this.tmsiViewProducts.Text = "عرض المنتجات";
             this.tmsiViewProducts.Click += new System.EventHandler(this.tmsiViewProducts_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 300000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +175,7 @@
         private System.Windows.Forms.ToolStripMenuItem tmsiInbox;
         private System.Windows.Forms.ToolStripMenuItem الخازنToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tmsiViewProducts;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

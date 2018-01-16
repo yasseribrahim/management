@@ -44,6 +44,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.gbxProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -102,6 +103,7 @@
             this.dgvProducts.Size = new System.Drawing.Size(1111, 456);
             this.dgvProducts.TabIndex = 22;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
+            this.dgvProducts.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvProducts_RowsAdded);
             // 
             // ColumnID
             // 
@@ -195,10 +197,23 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(9, 7);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox1.Size = new System.Drawing.Size(147, 17);
+            this.checkBox1.TabIndex = 38;
+            this.checkBox1.Text = "عرض المنتجات المطلوة فقط";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // ProductsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
@@ -231,5 +246,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLimit;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

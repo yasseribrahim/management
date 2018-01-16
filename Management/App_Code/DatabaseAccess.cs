@@ -329,6 +329,29 @@ namespace Management.App_Code
             }
         }
 
+        public int GetCountProductsRequired()
+        {
+            try
+            {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = Product.SELECT_COUNT_REQUIRED;
+                adapter = new SqlDataAdapter(command);
+                table = new DataTable();
+                adapter.Fill(table);
+                connection.Close();
+                foreach (DataRow row in table.Rows)
+                {
+                    return int.Parse(row["COUNT_REQUIRED"].ToString());
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: GetCountProductsRequired:- " + ex.Message);
+            }
+        }
+
         public bool DeleteProduct(int id)
         {
             try

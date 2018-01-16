@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Management.App_Code;
 
 namespace Management
 {
@@ -64,6 +65,14 @@ namespace Management
         private void tmsiViewProducts_Click(object sender, EventArgs e)
         {
             ShowDialog(new ProductsUserControl(), "عرض المنتجات");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (DatabaseAccess.getInstance().GetCountProductsRequired() > 0)
+            {
+                UIUtilties.ShowNotification("من فضلك تحقق من الكميات المتاحة للمنتجات");
+            }
         }
     }
 }

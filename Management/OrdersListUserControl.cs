@@ -75,6 +75,11 @@ namespace Management
             totalDiscount += order.Discount;
         }
 
+        private void dgvSales_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            UIUtilties.DataGridView_RowAdded(sender, e.RowIndex);
+        }
+
         private void RefreshTotal()
         {
             txtTotal.Text = total + "";

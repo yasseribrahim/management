@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.cbxMonthly = new System.Windows.Forms.ComboBox();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
@@ -80,6 +80,19 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "اختر نوع التقرير";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Enabled = false;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSearch.Location = new System.Drawing.Point(7, 77);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 16;
+            this.btnSearch.Text = "بحــــــث";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbxMonthly
             // 
@@ -305,6 +318,7 @@
             this.dgvSales.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSales.Size = new System.Drawing.Size(1099, 302);
             this.dgvSales.TabIndex = 15;
+            this.dgvSales.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvSales_RowsAdded);
             // 
             // Column7
             // 
@@ -343,19 +357,6 @@
             this.Column3.HeaderText = "الخصومات";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Enabled = false;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSearch.Location = new System.Drawing.Point(7, 77);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 16;
-            this.btnSearch.Text = "بحــــــث";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // ReportInboxUserControl
             // 

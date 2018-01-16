@@ -125,5 +125,10 @@ namespace Management
             dgvSales.Columns[2].Width = normal;
             dgvSales.Columns[3].Width = normal;
         }
+
+        private void dgvSales_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            UIUtilties.DataGridView_RowAdded(sender, e.RowIndex);
+        }
     }
 }
