@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Management.App_Code;
 
@@ -17,6 +12,7 @@ namespace Management
         private List<Client> clients;
         private List<Product> products;
         private Client client;
+        private RefreshListeners.OrderListener listener;
 
         public OrderUserControl(Order order)
         {
@@ -39,6 +35,12 @@ namespace Management
             {
                 MessageBox.Show("Error: " + ex.Message, "Error Message...");
             }
+        }
+
+        public RefreshListeners.OrderListener OrderListener
+        {
+            get { return listener; }
+            set { listener = value; }
         }
 
         private void ClientUserControl_Load(object sender, EventArgs e)
@@ -80,6 +82,10 @@ namespace Management
                 {
                     order.Id = access.SaveOrder(order);
                     MessageBox.Show(" تم الحفظ", "Message....", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (listener != null)
+                    {
+                        listener.onAdded(order);
+                    }
                 }
             }
             catch (Exception ex)

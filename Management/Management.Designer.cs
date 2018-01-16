@@ -37,13 +37,15 @@
             this.tsmiNewProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.التقاريرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiInbox = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخازنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiViewProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(0, 26);
             this.panel1.Name = "panel1";
@@ -52,20 +54,20 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menuStrip1.AutoSize = false;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiSystemManager,
-            this.التقاريرToolStripMenuItem});
+            this.التقاريرToolStripMenuItem,
+            this.الخازنToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, -1);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.menuStrip1.Size = new System.Drawing.Size(1080, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "mnuStrip";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // tsmiSystemManager
             // 
@@ -80,21 +82,24 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.toolStripMenuItem1.Text = "فاتورة جديدة...";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // tsmiNewClient
             // 
             this.tsmiNewClient.Name = "tsmiNewClient";
-            this.tsmiNewClient.Size = new System.Drawing.Size(144, 22);
+            this.tsmiNewClient.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.tsmiNewClient.Size = new System.Drawing.Size(187, 22);
             this.tsmiNewClient.Text = "عميل جديد ...";
             this.tsmiNewClient.Click += new System.EventHandler(this.tsmiNewClient_Click);
             // 
             // tsmiNewProduct
             // 
             this.tsmiNewProduct.Name = "tsmiNewProduct";
-            this.tsmiNewProduct.Size = new System.Drawing.Size(144, 22);
+            this.tsmiNewProduct.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.tsmiNewProduct.Size = new System.Drawing.Size(187, 22);
             this.tsmiNewProduct.Text = "منتج جديد ...";
             this.tsmiNewProduct.Click += new System.EventHandler(this.tsmiNewProduct_Click);
             // 
@@ -109,9 +114,26 @@
             // tmsiInbox
             // 
             this.tmsiInbox.Name = "tmsiInbox";
-            this.tmsiInbox.Size = new System.Drawing.Size(116, 22);
+            this.tmsiInbox.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.tmsiInbox.Size = new System.Drawing.Size(157, 22);
             this.tmsiInbox.Text = "الايرلدات";
             this.tmsiInbox.Click += new System.EventHandler(this.tmsiInbox_Click);
+            // 
+            // الخازنToolStripMenuItem
+            // 
+            this.الخازنToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmsiViewProducts});
+            this.الخازنToolStripMenuItem.Name = "الخازنToolStripMenuItem";
+            this.الخازنToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.الخازنToolStripMenuItem.Text = "الخازن";
+            // 
+            // tmsiViewProducts
+            // 
+            this.tmsiViewProducts.Name = "tmsiViewProducts";
+            this.tmsiViewProducts.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.tmsiViewProducts.Size = new System.Drawing.Size(188, 22);
+            this.tmsiViewProducts.Text = "عرض المنتجات";
+            this.tmsiViewProducts.Click += new System.EventHandler(this.tmsiViewProducts_Click);
             // 
             // Management
             // 
@@ -123,7 +145,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Management";
-            this.Text = "البيت الحديث";
+            this.Text = "المبيعات";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModernHouse_FormClosing);
             this.Load += new System.EventHandler(this.ModernHouse_Load);
@@ -143,6 +165,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem التقاريرToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tmsiInbox;
+        private System.Windows.Forms.ToolStripMenuItem الخازنToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tmsiViewProducts;
     }
 }
 

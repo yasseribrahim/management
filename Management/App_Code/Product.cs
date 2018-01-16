@@ -127,7 +127,8 @@ namespace Management.App_Code
         }
 
         public static string SELECT_ID = "SELECT * FROM Products WHERE ID = @ID";
-        public static string SELECT = "SELECT * FROM Products"; 
+        public static string SELECT = "SELECT * FROM Products";
+        public static string SELECT_BY_NAME = "SELECT * FROM Products WHERE Name LIKE '%PRODUCT_NAME%'";
         public static string INSERT = "[dbo].[InsertProduct]";
         public static string UPDATE = "UPDATE Products SET Name = @Name, Quantity = @Quantity, Limit = @Limit, Price = @Price, PriceSale = @PriceSale , Note = @Note WHERE ID = @ID";
         public static string UPDATE_STORE = "UPDATE Products SET Quantity = @Quantity WHERE ID = @ID";

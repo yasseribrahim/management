@@ -6,7 +6,7 @@ namespace Management
 {
     public partial class Management : Form
     {
-        private static ClientsUserControl control;
+        private static OrdersListUserControl control;
         public Management()
         {
             InitializeComponent();
@@ -14,7 +14,7 @@ namespace Management
 
         private void ModernHouse_Load(object sender, EventArgs e)
         {
-            control = new ClientsUserControl();
+            control = new OrdersListUserControl();
             control.Size = panel1.Size;
             panel1.Controls.Add(control);
         }
@@ -46,7 +46,9 @@ namespace Management
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ShowDialog(new OrderUserControl(new App_Code.Order()), "فاتورة جديدة");
+            OrderUserControl order = new OrderUserControl(new App_Code.Order());
+            order.OrderListener = control;
+            ShowDialog(order, "فاتورة جديدة");
         }
 
         private void ModernHouse_FormClosing(object sender, FormClosingEventArgs e)
@@ -59,9 +61,9 @@ namespace Management
             ShowDialog(new ReportInboxUserControl(), "التقارير");
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void tmsiViewProducts_Click(object sender, EventArgs e)
         {
-
+            ShowDialog(new ProductsUserControl(), "عرض المنتجات");
         }
     }
 }

@@ -101,6 +101,7 @@ namespace Management.App_Code
             }
         }
 
+
         public List<Client> GetAllClientsByName(string name)
         {
             try
@@ -275,6 +276,31 @@ namespace Management.App_Code
             catch (Exception ex)
             {
                 throw new Exception("Error: GetAllProducts:- " + ex.Message);
+            }
+        }
+
+        public List<Product> GetAllProducts(string name)
+        {
+            try
+            {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = Product.SELECT_BY_NAME.Replace("PRODUCT_NAME", name);
+                adapter = new SqlDataAdapter(command);
+                table = new DataTable();
+                adapter.Fill(table);
+                connection.Close();
+
+                List<Product> products = new List<Product>();
+                foreach (DataRow row in table.Rows)
+                {
+                    products.Add(ParseProduct(row));
+                }
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: GetAllProducts By Name " + name + ":- " + ex.Message);
             }
         }
 
@@ -493,6 +519,32 @@ namespace Management.App_Code
             }
         }
 
+        public List<Order> GetAllOrders(DateTime date)
+        {
+            try
+            {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = Order.SELECT_DATE;
+                command.Parameters.Add("@Date", SqlDbType.DateTime).Value = date;
+                adapter = new SqlDataAdapter(command);
+                table = new DataTable();
+                adapter.Fill(table);
+                connection.Close();
+
+                List<Order> operations = new List<Order>();
+                foreach (DataRow row in table.Rows)
+                {
+                    operations.Add(ParseOrder(row));
+                }
+                return operations;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: GetAllOrders " + date.ToString() + ":- " + ex.Message);
+            }
+        }
+
         public List<Order> GetAllOrders()
         {
             try
@@ -681,6 +733,7 @@ namespace Management.App_Code
                 connection.Open();
                 command = connection.CreateCommand();
                 command.CommandText = OrderDetail.INSERT;
+                command.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter OrderIdParameter = new SqlParameter("@OrderID", SqlDbType.Int);
                 OrderIdParameter.Value = detail.OrderId;
@@ -693,9 +746,9 @@ namespace Management.App_Code
                 command.Parameters.Add(ProductIdParameter);
                 command.Parameters.Add(QuantityParameter);
 
-                int result = command.ExecuteNonQuery();
+                command.ExecuteScalar();
                 connection.Close();
-                return result > 0;
+                return true;
             }
             catch (Exception ex)
             {

@@ -157,11 +157,12 @@ namespace Management.App_Code
             return "ID: " + id + ", ClientId: " + clientId + ", Date: " + date + ", Total: " + total + ", TotalSale: " + totalSale + ", Note: " + note;
         }
 
-        public static string SELECT_ID = "SELECT * FROM Order WHERE ID = @ID";
-        public static string SELECT_CLIENT_ID = "SELECT * FROM Order WHERE ClientID = @ClientID";
-        public static string SELECT = "SELECT * FROM Order";
+        public static string SELECT_ID = "SELECT * FROM Orders WHERE ID = @ID";
+        public static string SELECT_CLIENT_ID = "SELECT * FROM Orders WHERE ClientID = @ClientID";
+        public static string SELECT = "SELECT * FROM Orders";
         public static string INSERT = "[dbo].[InsertOrder]";
-        public static string UPDATE = "UPDATE Order SET ClientID = @ClientID, Date = @Date, Total = @Total, TotalSale = @TotalSale, Discount = @Discount, Note = @Note WHERE ID = @ID";
+        public static string UPDATE = "UPDATE Orders SET ClientID = @ClientID, Date = @Date, Total = @Total, TotalSale = @TotalSale, Discount = @Discount, Note = @Note WHERE ID = @ID";
         public static string DELETE = "[dbo].[DeleteOrder]";
+        public static string SELECT_DATE = "SELECT * FROM Orders WHERE CAST([Date] AS DATE) = @Date";
     }
 }

@@ -295,6 +295,8 @@
             this.txtDiscount.Size = new System.Drawing.Size(140, 20);
             this.txtDiscount.TabIndex = 57;
             this.txtDiscount.Text = "0";
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
+            this.txtDiscount.Leave += new System.EventHandler(this.txtDiscount_Leave);
             // 
             // label7
             // 
@@ -335,6 +337,7 @@
             this.btnDelete.TabIndex = 53;
             this.btnDelete.Text = "احذف";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dgvOrderDetails
             // 
@@ -355,6 +358,7 @@
             this.dgvOrderDetails.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvOrderDetails.Size = new System.Drawing.Size(373, 155);
             this.dgvOrderDetails.TabIndex = 52;
+            this.dgvOrderDetails.SelectionChanged += new System.EventHandler(this.dgvOrderDetails_SelectionChanged);
             // 
             // Column1
             // 
@@ -412,6 +416,7 @@
             this.btnAdd.TabIndex = 51;
             this.btnAdd.Text = "أضافة";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label6
             // 
@@ -431,6 +436,7 @@
             this.cobxProduct.Name = "cobxProduct";
             this.cobxProduct.Size = new System.Drawing.Size(142, 21);
             this.cobxProduct.TabIndex = 49;
+            this.cobxProduct.SelectedIndexChanged += new System.EventHandler(this.cobxProduct_SelectedIndexChanged);
             // 
             // cobxClient
             // 

@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="App_Code\Client.cs" />
     <Compile Include="App_Code\DatabaseAccess.cs" />
+    <Compile Include="App_Code\RefreshListeners.cs" />
     <Compile Include="App_Code\Order.cs" />
     <Compile Include="App_Code\OrderDetail.cs" />
     <Compile Include="App_Code\OrdersInfo.cs" />
@@ -95,6 +96,12 @@
     </Compile>
     <Compile Include="OrderUserControl.Designer.cs">
       <DependentUpon>OrderUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductsUserControl.Designer.cs">
+      <DependentUpon>ProductsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUserControl.cs">
       <SubType>UserControl</SubType>
@@ -116,6 +123,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OrdersListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrdersListUserControl.Designer.cs">
+      <DependentUpon>OrdersListUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportInboxUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrderUserControl.resx">
       <DependentUpon>OrderUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsUserControl.resx">
+      <DependentUpon>ProductsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUserControl.resx">
       <DependentUpon>ProductUserControl.cs</DependentUpon>
@@ -147,6 +163,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="OrdersListUserControl.resx">
+      <DependentUpon>OrdersListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportInboxUserControl.resx">
       <DependentUpon>ReportInboxUserControl.cs</DependentUpon>
     </EmbeddedResource>

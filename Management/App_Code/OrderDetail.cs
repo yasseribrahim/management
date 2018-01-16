@@ -79,6 +79,6 @@ namespace Management.App_Code
         }
 
         public static string SELECT_ORDER_ID = "SELECT * FROM OrderDetails WHERE OderId = @OderID";
-        public static string INSERT = "INSERT INTO OrderDetails VALUES(@OrderID, @ProductID, @Quantity)";
+        public static string INSERT = "[dbo].[InsertOrderDetail]";
     }
 }

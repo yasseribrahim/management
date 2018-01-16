@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Management.App_Code;
 
@@ -14,6 +8,7 @@ namespace Management
     {
         private DatabaseAccess access;
         private Product product;
+        private RefreshListeners.ProductListener listener;
 
         public ProductUserControl(Product product)
         {
@@ -24,6 +19,7 @@ namespace Management
                 this.product = product;
                 this.txtName.Text = this.product.Name;
                 this.txtQuantity.Text = this.product.Quantity + "";
+                this.txtLimit.Text = this.product.Limit + "";
                 this.txtPrice.Text = this.product.Price + "";
                 this.txtPriceSale.Text = this.product.PriceSale + "";
                 this.txtNote.Text = this.product.Note;
@@ -40,6 +36,12 @@ namespace Management
             {
                 MessageBox.Show("Error: " + ex.Message, "Error Message...");
             }
+        }
+
+        public RefreshListeners.ProductListener ProductListener
+        {
+            get { return listener; }
+            set { listener = value; }
         }
 
         private void ClientUserControl_Load(object sender, EventArgs e)
@@ -82,6 +84,10 @@ namespace Management
                     if (access.UpdateProduct(product))
                     {
                         MessageBox.Show(" تم التعديل", "Message....", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (listener != null)
+                        {
+                            listener.onUpdated(product);
+                        }
                     }
                     else
                     {

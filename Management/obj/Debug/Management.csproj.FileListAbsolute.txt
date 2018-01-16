@@ -27,3 +27,6 @@ C:\Users\Yasser\Desktop\Management\Management\obj\Debug\Management.ReportInboxUs
 C:\Users\Yasser\Desktop\Management\Management\bin\Debug\ModernHouse.exe.config
 C:\Users\Yasser\Desktop\Management\Management\bin\Debug\ModernHouse.exe
 C:\Users\Yasser\Desktop\Management\Management\bin\Debug\ModernHouse.pdb
+C:\Users\Yasser\Desktop\Management\Management\obj\Debug\Management.csprojResolveAssemblyReference.cache
+C:\Users\Yasser\Desktop\Management\Management\obj\Debug\Management.OrdersListUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Debug\Management.ProductsUserControl.resources
