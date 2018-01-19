@@ -1,0 +1,15 @@
+C:\Users\Yasser\Desktop\Management\Management\bin\Release\Management.exe.config
+C:\Users\Yasser\Desktop\Management\Management\bin\Release\Management.exe
+C:\Users\Yasser\Desktop\Management\Management\bin\Release\Management.pdb
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.ClientsUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.OrderUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.ProductsUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.ProductUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.ClientUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.Management.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.Properties.Resources.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.OrdersListUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.ReportInboxUserControl.resources
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.csproj.GenerateResource.Cache
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.exe
+C:\Users\Yasser\Desktop\Management\Management\obj\Release\Management.pdb

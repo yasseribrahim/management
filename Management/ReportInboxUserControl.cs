@@ -66,6 +66,7 @@ namespace Management
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            UIUtilties.Loading(true);
             DateTime date1 = DateTime.Now.AddMonths(-1);
             DateTime date2 = DateTime.Now;
             if (rdoDayly.Checked)
@@ -108,6 +109,7 @@ namespace Management
             {
                 MessageBox.Show("Error: " + ex.Message, "Error Message...");
             }
+            UIUtilties.Loading(false);
         }
 
         private void ReportInboxUserControl_Load(object sender, EventArgs e)

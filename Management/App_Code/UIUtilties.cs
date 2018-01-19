@@ -53,5 +53,10 @@ namespace Management.App_Code
             Thread.Sleep(10000);
             notification.Dispose();
         }
+
+        public static void Loading(bool isLoading)
+        {
+            Cursor.Current = (isLoading) ? Cursors.WaitCursor : Cursors.Arrow;
+        }
     }
 }

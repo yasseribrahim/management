@@ -40,6 +40,7 @@ namespace Management
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
+            UIUtilties.Loading(true);
             DateTime date = dtpDay.Value;
 
             try
@@ -65,6 +66,7 @@ namespace Management
             {
                 MessageBox.Show("Error: " + ex.Message, "Error Message...");
             }
+            UIUtilties.Loading(false);
         }
 
         private void AddOrder(Order order)

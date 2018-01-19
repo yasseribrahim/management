@@ -56,7 +56,6 @@ namespace Management
             }
 
             productsCritical.Clear();
-            dgvProducts.Rows.Clear();
             foreach (Product product in products)
             {
                 if (product.IsCritical())
@@ -75,7 +74,7 @@ namespace Management
             {
                 currentProducts = productsCritical;
             }
-            
+
             dgvProducts.Rows.Clear();
             foreach (Product product in currentProducts)
             {
@@ -135,7 +134,18 @@ namespace Management
                 row.Cells["ColumnQuantity"].Value = product.Quantity + "";
                 row.Cells["ColumnLimit"].Value = product.Limit + "";
 
-                UIUtilties.DataGridView_RowAdded(dgvProducts, index, product.Quantity <= product.Limit);
+                UIUtilties.DataGridView_RowAdded(dgvProducts, index, product.IsCritical());
+
+                if (productsCritical.Exists(element => element.Id == product.Id))
+                {
+                    if (!product.IsCritical())
+                    {
+                        productsCritical.Remove(product);
+                    }
+                } else if (product.IsCritical())
+                {
+                    productsCritical.Add(product);
+                }
             }
         }
 
@@ -153,18 +163,22 @@ namespace Management
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            UIUtilties.Loading(true);
             LoadData();
+            UIUtilties.Loading(false);
         }
 
         private void dgvProducts_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             Product product = products[e.RowIndex];
-            UIUtilties.DataGridView_RowAdded(sender, e.RowIndex, product.Quantity <= product.Limit);
+            UIUtilties.DataGridView_RowAdded(sender, e.RowIndex, product.IsCritical());
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            ReFillData();   
+            UIUtilties.Loading(true);
+            ReFillData();
+            UIUtilties.Loading(false);
         }
     }
 }

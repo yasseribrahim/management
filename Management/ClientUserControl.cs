@@ -56,6 +56,7 @@ namespace Management
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            UIUtilties.Loading(true);
             try
             {
                 if (Validate())
@@ -68,10 +69,12 @@ namespace Management
             {
                 MessageBox.Show("لم يتم الحفظ" + "\n" + ex.Message, "Error Message....", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+            UIUtilties.Loading(false);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            UIUtilties.Loading(true);
             try
             {
                 if (Validate())
@@ -90,6 +93,7 @@ namespace Management
             {
                 MessageBox.Show("لم يتم التعديل" + "\n" + ex.Message, "Error Message....", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+            UIUtilties.Loading(false);
         }
 
         private new bool Validate()
